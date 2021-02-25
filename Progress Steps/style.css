@@ -1,0 +1,23 @@
+body {
+    background-color: #f6f7fb;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.program_container {
+    width: 350px;
+    justify-content: center;
+
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+  
+}

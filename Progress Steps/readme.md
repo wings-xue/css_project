@@ -1,0 +1,1 @@
+1. text-align: center; 会让button居中
