@@ -4,8 +4,7 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+ 
     text-align: center;
 
 }
@@ -16,8 +15,19 @@ body {
 
 }
 
+.panel::before {
+    content: "";
+    background-color: tomato;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-4px);
+    z-index: -1;
+}
+
 .panel {
     display: flex;
     justify-content: space-between;
-  
+    position: relative;
 }
