@@ -1,5 +1,6 @@
-let curActive = 1
 
+
+let curActive = {"count":1}
 
 // 获取需要基于事件变形的对象
 let prev = document.querySelector("#prev")
@@ -14,25 +15,28 @@ prev.addEventListener("click", function(){
 })
 
 next.addEventListener("click", function(){
-    debugger;
+
     update(curActive, "next")
    
 })
 
 function changeCurActive(curActive, opt) {
     if (opt == "next") {
-        return curActive + 1
+        curActive.count ++ 
+        // return curActive + 1
      
     }
     if (opt == "prev") {
-        return curActive - 1
+        curActive.count --
+        // return curActive - 1
          
     }
   
 }
 
 function update(curActive, opt) {
-    curActive = changeCurActive(curActive, opt)
+    // curActive = changeCurActive(curActive, opt)
+    changeCurActive(curActive, opt)
     updateBotton(curActive)
     updateCircle(curActive)
     updateProgress(curActive)
@@ -40,12 +44,13 @@ function update(curActive, opt) {
 
 
 function updateBotton(curActive) {
-    if (curActive == 4) {
+    let _curActive = curActive.count
+    if (_curActive == 4) {
         next.disabled = true
         prev.disabled = false 
         return 
     } 
-    if (curActive == 1) {
+    if (_curActive == 1) {
         next.disabled = false 
         prev.disabled = true 
         return 
@@ -57,8 +62,15 @@ function updateBotton(curActive) {
 }
 
 function updateCircle(curActive) {
+    let _curActive = curActive.count
     elements = document.querySelectorAll(".circle")
-    for (let i = 0; i <= curActive; i++) {
+    for (let i = 0; i < 4; i++) {
+        // 获取所有circle元素并且添加class=active
+        element = elements[i]
+        element.classList.remove("active")
+    }
+
+    for (let i = 0; i < _curActive; i++) {
         // 获取所有circle元素并且添加class=active
         element = elements[i]
         element.classList.add("active")
@@ -66,5 +78,9 @@ function updateCircle(curActive) {
 }
 
 function updateProgress(curActive) {
-    progress.style["width"] = curActive/3 * 100 + "%"  
+    let _curActive = curActive.count
+
+    progress.style["width"] = (_curActive-1)/3 * 100 + "%"  
+    
+
 }

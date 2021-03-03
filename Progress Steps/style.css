@@ -11,6 +11,7 @@ body {
     top: 50%;
     transform: translateY(-2px);
     z-index: -1;
+    transition: 0.4 ease;
 }
 
 .container {
@@ -75,6 +76,8 @@ body {
     padding:8px 30px;
     margin:5px;
     color: white;
+    outline:none;
+    cursor: pointer;
 }
 
 .btn:disabled {

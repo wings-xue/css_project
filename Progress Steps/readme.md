@@ -5,3 +5,4 @@
     relative：占用空间但是可以调节位置, 所以可以用来做absolute相对位置的相对元素
     flex： flex布局
     static： 默认
+4. transition 过滤 animation 动画
